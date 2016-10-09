@@ -17,3 +17,5 @@
 * What is a merge conflict?
 
   A merge conflict can occur when multiple people change the same file in a line, or if one user deletes a file and another user modifies it. Git marks the file as having a conflict, and then one user can resolve the conflict by changing a file in a way that ensures there are no conflicting edits.
+  
+1 week down, a lot more to go!
