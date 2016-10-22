@@ -13,3 +13,11 @@
 .list {
 	font-size: 0.8em;
 }
+
+li:first-child {
+	font-weight: bold;
+}
+
+#personal-objective p {
+	font-size: 1.2em;
+}
