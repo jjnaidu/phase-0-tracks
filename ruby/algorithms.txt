@@ -1,0 +1,22 @@
+Elevator
+
+- Press a button to call the elevator
+	- If you are going up, press the top button
+	- If you are going down, press the bottom button
+	- If you are on the top or bottom floor, there is only one button to press
+- Wait for the elevator doors to open and step in side
+- Press the button with a number equal to the floor number you wish to visit
+- Wait for the elevator to stop at another floor
+	- If it stopped at the floor number equal to the button number you pressed, step outside
+	- Otherwise, wait for the elevator to reach your floor
+
+Starting a computer
+
+- Press the power button
+- Wait for the screen to turn on
+- Select an account to log in to
+- Enter your password
+	- If the password is correct, you will be taken to your desktop
+	- If the password is incorrect, you will be asked to enter it again
+- Select the program you wish to open
+- Start working
