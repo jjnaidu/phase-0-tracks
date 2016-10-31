@@ -40,7 +40,22 @@ def decrypt(str)
 	return str
 end
 
-puts encrypt("abc")
-puts encrypt("zed")
-puts decrypt("bcd")
-puts decrypt("afe")
+# puts encrypt("abc")
+# puts encrypt("zed")
+# puts decrypt("bcd")
+# puts decrypt("afe")
+# puts decrypt(encrypt("swordfish"))
+
+puts "Would you like to encrypt or decrypt a password?"
+response = gets.chomp
+
+puts "What is the password?"
+password = gets.chomp
+
+if response == "encrypt"
+	code = encrypt(password)
+elsif response == "decrypt"
+	code = decrypt(password)
+end
+
+puts "Modified password: #{code}"
