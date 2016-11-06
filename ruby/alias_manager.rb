@@ -16,7 +16,21 @@ def pseudonym(str)
 	rev.reverse!
 	rev_name = rev.join(' ')
 
-	return rev_name
+	vowel = "aeiou"
+	consonant = "bcdfghjklmnpqrstvwxyz"
+
+	scrambler = rev_name.chars
+	scrambler.map! do |letter| 
+		if vowel.include? letter
+			letter = vowel[vowel.index(letter) - (vowel.length - 1)]
+		elsif consonant.include? letter
+			letter = consonant[consonant.index(letter) - (consonant.length - 1)]
+		else
+			letter = letter
+		end
+	end
+
+	return scrambler
 end
 
 name = "Felicia Torres"
