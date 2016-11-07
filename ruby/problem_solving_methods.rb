@@ -60,3 +60,31 @@ p fib(1)
 p fib(2)
 p fib(6)
 
+# Bubble sort
+# Method takes an array as a parameter
+# Passes through array multiple times
+# 	If value is greater than next value in array, the values are swapped
+# 	Loop ends when no swaps are made in a pass
+# Method returns sorted array
+
+def bubble_sort(arr)
+	loop do 
+		swap_flag = false
+		(arr.length - 1).times do |n|
+			if arr[n] > arr[n + 1]
+				arr[n], arr[n+1] = arr[n+1], arr[n]
+				swap_flag = true
+			end
+		end
+
+		if swap_flag == false
+			break
+		end		
+	end
+
+	return arr
+
+end
+
+arr2 = [5, 2, 6, 2, 4, 7, 3, 1]
+p bubble_sort(arr2)
