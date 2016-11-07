@@ -58,5 +58,3 @@ while real_name != "quit"
 end
 
 puts fake_names.inspect
-
-
