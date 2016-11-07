@@ -60,4 +60,4 @@ while real_name != "quit"
 end
 
 fake_names.each { |real_name, fake_name| 
-puts "#{real_name} is actually #{fake_name}!"}
+puts "#{fake_name} is actually #{real_name}!"}
