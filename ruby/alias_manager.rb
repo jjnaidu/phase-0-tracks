@@ -20,19 +20,43 @@ def pseudonym(str)
 	consonant = "bcdfghjklmnpqrstvwxyz"
 
 	scrambler = rev_name.chars
-	scrambler.map! do |letter| 
+	scrambler.map! do |letter|
+		# Index moves backward through strings to handle edge cases 
 		if vowel.include? letter
 			letter = vowel[vowel.index(letter) - (vowel.length - 1)]
 		elsif consonant.include? letter
 			letter = consonant[consonant.index(letter) - (consonant.length - 1)]
 		else
+			# Handles space
 			letter = letter
 		end
 	end
 
-	return scrambler
+	new_name = scrambler.join('')
+
+	return new_name
 end
 
-name = "Felicia Torres"
-codename = pseudonym(name)
-puts codename
+# User Interface
+# User enters a name
+# Name is turned into a fake name through pseudonym method
+# Fake name is stored in array
+# Process loops until user enters 'quit'
+# Array of fake names is printed
+
+fake_names = Array.new
+
+puts "Enter a name (type 'quit' to exit):"
+real_name = gets.chomp
+
+while real_name != "quit"
+	codename = pseudonym(real_name)
+	fake_names.push(codename)
+
+	puts "Enter another name (type 'quit' to exit):"
+	real_name = gets.chomp
+end
+
+puts fake_names.inspect
+
+
