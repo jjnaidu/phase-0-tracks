@@ -40,21 +40,24 @@ end
 # User Interface
 # User enters a name
 # Name is turned into a fake name through pseudonym method
-# Fake name is stored in array
+# Names are stored in hash
+# 	Key: Real Name
+# 	Value: Fake Name
 # Process loops until user enters 'quit'
-# Array of fake names is printed
+# Hash of fake names is iterated through and printed
 
-fake_names = Array.new
+fake_names = Hash.new
 
 puts "Enter a name (type 'quit' to exit):"
 real_name = gets.chomp
 
 while real_name != "quit"
 	codename = pseudonym(real_name)
-	fake_names.push(codename)
+	fake_names[real_name] = codename
 
 	puts "Enter another name (type 'quit' to exit):"
 	real_name = gets.chomp
 end
 
-puts fake_names.inspect
+fake_names.each { |real_name, fake_name| 
+puts "#{real_name} is actually #{fake_name}!"}
