@@ -8,7 +8,7 @@
 
 def create_list(str)
 	list = str.split(' ')
-	grocery_list = Hash.new
+	grocery_list = {}
 	list.each do |item|
 		grocery_list[item] = 1
 	end
@@ -40,11 +40,11 @@ end
 
 # Method to update the quantity of an item
 # input: take hash, item name, and quantity value as argument
-# steps: iterate through hash and find key to change the value quantity
+# steps: change quantity based on item name
 # output: return the hash
 
 def update_quantity(grocery_list, item_name, quantity)
-	grocery_list[item_name] = quantity
+	add_item(grocery_list, item_name, quantity)
 	return grocery_list
 end
 
@@ -64,5 +64,35 @@ add_item(grocery_list, "apples", 2)
 add_item(grocery_list, "oranges")
 remove_item(grocery_list, "tomatoes")
 update_quantity(grocery_list, "ice_cream", 5)
+
+# Print list after updates
 puts ""
 print_list(grocery_list)
+
+# What did you learn about pseudocode from working on this challenge?
+# I learned that pseudocode makes it easier to design methods because
+# specifying the input and output can make it easier to determine the
+# steps for the method.
+
+# What are the tradeoffs of using arrays and hashes for this challenge?
+# Arrays are simpler to use, but hashes hold more information and make
+# it easier to organize that information.
+
+# What does a method return?
+# A method returns a value if one is specified.
+
+# What kind of things can you pass into methods as arguments?
+# Values, variables, and other methods can be passed as arguments.
+
+# How can you pass information between methods?
+# You can return the information to the driver code and pass it 
+# as an argument to another method, or you can call a method inside
+# another method.
+
+# What concepts were solidified in this challenge, and what concepts 
+# are still confusing?
+# Pseudocode was made more clear to me in this challenge. I was
+# confused about when it's necessary to specify a return value and
+# when I don't need it.
+
+
