@@ -94,5 +94,3 @@ print_list(grocery_list)
 # Pseudocode was made more clear to me in this challenge. I was
 # confused about when it's necessary to specify a return value and
 # when I don't need it.
-
-
