@@ -1,6 +1,6 @@
 class Santa
-	attr_reader :age, :ethnicity
-	attr_accessor :gender
+	attr_reader :ethnicity
+	attr_accessor :gender, :age
 
 	def initialize(gender, ethnicity)
 		@gender = gender
@@ -47,3 +47,33 @@ puts "santas[1] ethnicity: #{santas[1].ethnicity}"
 santas[2].get_mad_at("Dancer")
 santas[2].gender = "gender fluid"
 puts "santas[2] gender: #{santas[2].gender}"
+
+# Create lots of Santas using a loop
+# Until counter reaches 100
+# 	Create new Santa object with random gender and ethnicity
+# 	Set age to random number
+# 	Print attributes of each Santa object
+
+puts ""
+puts "Parade of Santas:"
+puts ""
+
+genders = ["agender", "female", "bigender", "male", 
+	"female", "gender fluid", "N/A"]
+ethnicities = ["black", "Latino", "white", "Japanese-African",
+	"prefer not to say", "Mystical Creature (unicorn)", "N/A"]
+
+count = 0
+
+until count == 100
+	rand_santa = Santa.new(genders.sample, ethnicities.sample)
+	rand_santa.age = rand(0..140)
+	puts "Santa #{count}"
+	puts "Gender: #{rand_santa.gender}"
+	puts "Ethnicity: #{rand_santa.ethnicity}"
+	puts "Age: #{rand_santa.age}"
+	puts ""
+	count += 1
+end
+
+
