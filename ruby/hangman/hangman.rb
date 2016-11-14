@@ -13,8 +13,7 @@
 # 	Player 2 will see their updated guess
 
 class Hangman
-	attr_reader :answer, :remaining
-	attr_accessor :player_wins, :guess
+	attr_reader :remaining, :player_wins, :guess
 
 	def initialize(answer)
 		@answer = answer.split('')
@@ -31,9 +30,10 @@ class Hangman
 	end
 
 	def check_guess(letter)
-		if answer.include?(letter)
-			return true
+		@remaining -= 1
+		if @answer.include?(letter)
 			add_letter(letter)
+			return true			
 		else
 			return false
 		end
@@ -43,13 +43,12 @@ class Hangman
 		i = 0
 		until i == @answer.length
 			if @answer[i] == letter
-				guess[i] = letter
+				@guess[i] = letter
 			else
-				guess[i] = guess[i]
+				@guess[i] = @guess[i]
 			end
 			i += 1
-		end
-		return @guess
+		end	
 	end
 
 	def win_condition
@@ -58,9 +57,31 @@ class Hangman
 		end
 		return @player_wins
 	end
-
 end
 
 # Driver code for game
 
+puts "Enter a word for the other player to guess:"
+word = gets.chomp
+game = Hangman.new(word)
+game.create_guess
+p game.guess
 
+until game.remaining == 0
+	puts "You have #{game.remaining} guesses remaining."
+	puts "Enter a letter:"
+	letter = gets.chomp
+
+	game.check_guess(letter)
+	p game.guess
+
+	if game.win_condition
+		break
+	end
+end
+
+if game.remaining == 0
+	puts "You get nothing! You lose! Good day, sir!"
+else
+	puts "YOU WIN!"
+end
