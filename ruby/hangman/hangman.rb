@@ -20,6 +20,7 @@ class Hangman
 		@remaining = answer.length + 6
 		@player_wins = false
 		@guess = []
+		@letters = []
 	end
 
 	def create_guess
@@ -57,6 +58,15 @@ class Hangman
 		end
 		return @player_wins
 	end
+
+	def repeated_letter(letter)
+		if !@letters.include?(letter)
+			@letters << letter
+		else
+			@remaining += 1
+		end
+	end
+
 end
 
 # Driver code for game
@@ -71,6 +81,8 @@ until game.remaining == 0
 	puts "You have #{game.remaining} guesses remaining."
 	puts "Enter a letter:"
 	letter = gets.chomp
+
+	game.repeated_letter(letter)
 
 	game.check_guess(letter)
 	p game.guess
