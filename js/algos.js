@@ -18,6 +18,8 @@ function longest(strs) {
 	return long;
 }
 
+// Test longest function
+
 var phrases1 = ["long phrase", "longest phrase", "longer phrase"];
 var phrases2 = ["biggest", "bigger", "big"];
 var phrases3 = ["red", "orange", "yellow", "rainbow"];
@@ -46,6 +48,8 @@ function match(obj1, obj2) {
 	return false;
 }
 
+// Test match function
+
 var hash1 = {name: "Steven", age: 54};
 var hash2 = {name: "Tamir", age: 54};
 var hash3 = {name: "Jay", age: 23};
@@ -55,6 +59,44 @@ console.log(match(hash1, hash3));
 
 /*
 Generate Random Test Data
-
-
+Takes number of words as argument
+While length of array is less than number of words
+	Generate random number to represent length of new word
+	While length of word is less than random number, add new character
+	Add new string to array
+Return array
 */
+
+function randomData(len) {
+	var data = [];
+	var chars = "abcdefghijklmnopqrstuvwxyz";
+	var count = 0;
+	var wordLen = 0;
+	var index = 0;
+
+	while (count < len) {
+		var word = "";
+		wordLen = Math.floor((Math.random() * 10) + 1);
+		for (var i = 0; i < wordLen; i++) {			
+			index = Math.floor(Math.random() * 26);
+			word += chars[index];
+		}
+
+		data.push(word);
+
+		count++;
+	}
+
+	return data;
+}
+
+// Test randomData function
+
+for (var i = 0; i < 10; i++) {
+	var rand = randomData(3);
+	console.log("");
+	console.log(rand);
+	console.log(longest(rand));
+}
+
+
