@@ -1,14 +1,20 @@
+// Create arrays
+
 var colors = ["red", "blue", "yellow", "green"];
 var horses = ["Ed", "Jonny", "Kevin", "Rolf"];
 
 console.log(colors);
 console.log(horses);
 
+// Add values to arrays
+
 colors.push("purple");
 horses.push("Jimmy");
 
 console.log(colors);
 console.log(horses);
+
+// Create hash using array values
 
 var coloredHorses = {};
 
@@ -17,6 +23,8 @@ for (var i = 0; i < horses.length; i++) {
 }
 
 console.log(coloredHorses);
+
+// Create constructor function for car
 
 function Car(color, year, envFriendly) {
 	console.log("New car:", this);
@@ -29,6 +37,8 @@ function Car(color, year, envFriendly) {
 
 	console.log("Car Construction Complete");
 }
+
+// Create car objects
 
 var toyota = new Car("gray", 2010, true);
 console.log(toyota);
