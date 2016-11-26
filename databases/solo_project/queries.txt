@@ -1,0 +1,60 @@
+1. Display information in table
+
+sqlite> SELECT * FROM consoles;
+1|Xbox One|false
+2|Playstation 4|false
+3|Nintendo 3DS|true
+
+2. Update an item
+
+sqlite> UPDATE games SET multiplayer="false" WHERE console_id=2;
+
+3. Display information in both tables
+
+sqlite> SELECT * FROM games, consoles WHERE games.console_id = consoles.id;
+1|Final Fantasy XV|false|2|2|Playstation 4|false
+2|Call of Duty: Infinite Warfare|true|1|1|Xbox One|false
+3|Pokemon Moon|true|3|3|Nintendo 3DS|true
+4|Watch Dogs 2|false|2|2|Playstation 4|false
+
+4. Display a narrower selection of columns from both tables
+
+sqlite> SELECT games.name, consoles.name FROM games JOIN consoles ON games.console_id = consoles.id;
+Final Fantasy XV|Playstation 4
+Call of Duty: Infinite Warfare|Xbox One
+Pokemon Moon|Nintendo 3DS
+Watch Dogs 2|Playstation 4
+
+5. Delete an item
+
+sqlite> DELETE FROM games WHERE console_id = 1;
+
+Join Queries
+
+Cross Join:
+
+sqlite> SELECT games.name, consoles.name FROM games CROSS JOIN consoles;
+Final Fantasy XV|Xbox One
+Final Fantasy XV|Playstation 4
+Final Fantasy XV|Nintendo 3DS
+Pokemon Moon|Xbox One
+Pokemon Moon|Playstation 4
+Pokemon Moon|Nintendo 3DS
+Watch Dogs 2|Xbox One
+Watch Dogs 2|Playstation 4
+Watch Dogs 2|Nintendo 3DS
+
+Outer Join:
+
+sqlite> SELECT consoles.name, games.name FROM consoles LEFT OUTER JOIN games ON consoles.id = games.console_id;
+Xbox One|
+Playstation 4|Final Fantasy XV
+Playstation 4|Watch Dogs 2
+Nintendo 3DS|Pokemon Moon
+
+Inner Join:
+
+sqlite> SELECT games.name, consoles.name FROM games INNER JOIN consoles ON games.console_id = consoles.id;
+Final Fantasy XV|Playstation 4
+Pokemon Moon|Nintendo 3DS
+Watch Dogs 2|Playstation 4
