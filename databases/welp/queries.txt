@@ -12,7 +12,7 @@ Bradford|Pitt|Grundy Hollow Wedding Chapel|3|I have no strong feelings one way o
 Angela|Jolie|Amir's Towing|1|Terrible service
 Mandy|Kaling|The Beagle Nightclub|5|Awesome experience
 
-3. View data for one business
+3. View data for one business only
 
 sqlite> SELECT users.first_name, users.last_name, businesses.name, reviews.stars, reviews.comment FROM users INNER JOIN reviews ON users.id = reviews.user_id INNER JOIN businesses ON reviews.business_id = businesses.id WHERE businesses.id = 1;
 Bradford|Pitt|Grundy Hollow Wedding Chapel|3|I have no strong feelings one way or the other
