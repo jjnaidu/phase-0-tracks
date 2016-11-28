@@ -1,0 +1,18 @@
+1. Joining three tables
+
+sqlite> SELECT * FROM businesses, reviews, users WHERE businesses.id = reviews.business_id AND reviews.user_id = users.id;
+1|Grundy Hollow Wedding Chapel|1|3|I have no strong feelings one way or the other|1|1|1|Bradford|Pitt
+2|Amir's Towing|2|1|Terrible service|2|3|3|Angela|Jolie
+3|The Beagle Nightclub|3|5|Awesome experience|3|2|2|Mandy|Kaling
+
+2. View fewer columns
+
+sqlite> SELECT users.first_name, users.last_name, businesses.name, reviews.stars, reviews.comment FROM users INNER JOIN reviews ON users.id = reviews.user_id INNER JOIN businesses ON reviews.business_id = businesses.id;
+Bradford|Pitt|Grundy Hollow Wedding Chapel|3|I have no strong feelings one way or the other
+Angela|Jolie|Amir's Towing|1|Terrible service
+Mandy|Kaling|The Beagle Nightclub|5|Awesome experience
+
+3. View data for one business
+
+sqlite> SELECT users.first_name, users.last_name, businesses.name, reviews.stars, reviews.comment FROM users INNER JOIN reviews ON users.id = reviews.user_id INNER JOIN businesses ON reviews.business_id = businesses.id WHERE businesses.id = 1;
+Bradford|Pitt|Grundy Hollow Wedding Chapel|3|I have no strong feelings one way or the other
