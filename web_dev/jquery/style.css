@@ -1,0 +1,10 @@
+#slide, #content {
+	padding: 5px;
+	text-align: center;
+	background-color: orange;
+	border: solid 1.5px;
+}
+
+#content {
+	padding: 50px;
+}
